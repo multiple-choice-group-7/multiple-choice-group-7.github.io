@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Chính</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <a href="/pages/login.html">Login</a>
+  <div class="container">
+    <h1>Danh sách các kỳ thi</h1>
+    <div id="searchFilter">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+      <select id="filterSelect">
+        <option value="all">Tất cả</option>
+        <option value="free">Có thể truy cập tự do</option>
+        <option value="timed">Yêu cầu thời gian cụ thể</option>
+      </select>
+    </div>
+    <div id="examList">
+      <!-- Danh sách các kỳ thi sẽ được hiển thị ở đây -->
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+</html>

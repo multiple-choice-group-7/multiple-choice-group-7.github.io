@@ -1,0 +1,56 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  #question {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  #options button {
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  #options button:hover {
+    background-color: #d30000;
+    color: #fff;
+  }
+  
+  #timer {
+    margin-top: 20px;
+  }
+  
+  #submitBtn {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #submitBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  #message {
+    margin-top: 20px;
+  }
+  
