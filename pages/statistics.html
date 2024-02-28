@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Thống kê</title>
+  <link rel="stylesheet" href="../css/statistics.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Thống kê</h1>
+    <div id="filterOptions">
+      <label for="examSelect">Chọn kỳ thi:</label>
+      <select id="examSelect">
+        <option value="all">Tất cả</option>
+        <!-- Danh sách các kỳ thi sẽ được tạo tự động -->
+      </select>
+      <button onclick="exportReport()">Xuất báo cáo</button>
+    </div>
+    <div id="statisticsTable">
+      <!-- Bảng thống kê sẽ được tạo tự động -->
+    </div>
+  </div>
+
+  <script src="../js/statistics.js"></script>
+</body>
+</html>
