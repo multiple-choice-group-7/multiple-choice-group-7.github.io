@@ -4,14 +4,13 @@ document.getElementById('examForm').addEventListener('submit', function(event) {
     const formData = new FormData(this);
     const examData = {};
     formData.forEach((value, key) => {
-      examData[key] = value;
+        examData[key] = value;
     });
     // Gửi dữ liệu đến backend hoặc xử lý dữ liệu ở đây
     console.log(examData);
-  });
-  
-  // Hủy và quay lại trang trước
-  function cancel() {
+});
+
+// Hủy và quay lại trang trước
+function cancel() {
     window.history.back();
-  }
-  
+}

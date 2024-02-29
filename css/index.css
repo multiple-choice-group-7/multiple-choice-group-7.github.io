@@ -1,43 +1,41 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  #searchFilter {
+}
+
+#searchFilter {
     margin-bottom: 20px;
-  }
-  
-  #searchInput, #filterSelect {
+}
+
+#searchInput, #filterSelect {
     margin-right: 10px;
     padding: 8px;
-  }
-  
-  .exam-item {
+}
+
+.exam-item {
     background-color: #fff;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-  }
-  
-  button {
+}
+
+button {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #0056b3;
-  }
-  
+}

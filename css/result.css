@@ -1,28 +1,26 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  .correct {
+}
+
+.correct {
     background-color: lightgreen;
     border: 1px solid green;
     padding: 10px;
     margin-bottom: 10px;
-  }
-  
-  .incorrect {
+}
+
+.incorrect {
     background-color: #ffb3b3;
     border: 1px solid #ff4d4d;
     padding: 10px;
     margin-bottom: 10px;
-  }
-  
+}

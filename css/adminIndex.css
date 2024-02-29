@@ -1,44 +1,43 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);          
+}
+
+h1 {
     text-align: center;
-  }
-  
-  h2 {
+}
+
+h2 {
     margin-top: 30px;
     border-bottom: 2px solid #ccc;
     padding-bottom: 5px;
-  }
-  
-  button {
+}
+
+button {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #0056b3;
-  }
-  
-  .modal {
+}
+
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -48,49 +47,48 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     border-radius: 5px;
     width: 80%;
-  }
-  
-  .close {
+}
+
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  #examList,
-  #userList,
-  #statistics {
+}
+
+#examList,
+#userList,
+#statistics {
     margin-top: 20px;
-  }
-  
-  #examList div,
-  #userList div {
+}
+
+#examList div,
+#userList div {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
-  }
-  
-  #examList button,
-  #userList button {
+}
+
+#examList button,
+#userList button {
     margin-left: 10px;
-  }
-  
-  #statistics p {
+}
+
+#statistics p {
     margin-bottom: 10px;
-  }
-  
+}
