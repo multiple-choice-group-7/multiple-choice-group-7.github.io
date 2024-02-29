@@ -92,3 +92,12 @@ button:hover {
 #statistics p {
     margin-bottom: 10px;
 }
+
+.navbar-container {
+    padding-bottom: 50px;
+}
+
+.navbar-button {
+    display: flex;
+    gap: 10px;
+}
