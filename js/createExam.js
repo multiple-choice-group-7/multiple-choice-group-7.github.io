@@ -1,8 +1,8 @@
 // Xử lý khi form được submit
 document.getElementById('examForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const formData = new FormData(this);
     const examData = {};
+    const formData = new FormData(this);
     formData.forEach((value, key) => {
         examData[key] = value;
     });
@@ -10,7 +10,10 @@ document.getElementById('examForm').addEventListener('submit', function(event) {
     console.log(examData);
 });
 
+// export const ans = examData;
+
 // Hủy và quay lại trang trước
 function cancel() {
     window.history.back();
 }
+
