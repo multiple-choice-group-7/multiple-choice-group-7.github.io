@@ -57,43 +57,181 @@
     </nav>
   </div>
 
-  <div class="container">
+  <!-- <div class="container">
     <h1>Dashboard Admin</h1>
     <h2>Quản lý kỳ thi</h2>
     <button onclick="openAddExamModal()">Thêm mới kỳ thi</button>
     <div id="examList">
-      <!-- Danh sách các kỳ thi sẽ được hiển thị ở đây -->
     </div>
 
     <h2>Quản lý người dùng</h2>
     <button onclick="openAddUserModal()">Thêm mới người dùng</button>
     <div id="userList">
-      <!-- Danh sách người dùng sẽ được hiển thị ở đây -->
     </div>
 
     <h2>Thống kê</h2>
     <div id="statistics">
-      <!-- Thống kê sẽ được hiển thị ở đây -->
     </div>
   </div>
 
-  <!-- Modal thêm mới kỳ thi -->
   <div id="addExamModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeAddExamModal()">&times;</span>
       <h3>Thêm mới kỳ thi</h3>
-      <!-- Form thêm mới kỳ thi sẽ được hiển thị ở đây -->
     </div>
   </div>
 
-  <!-- Modal thêm mới người dùng -->
   <div id="addUserModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeAddUserModal()">&times;</span>
       <h3>Thêm mới người dùng</h3>
-      <!-- Form thêm mới người dùng sẽ được hiển thị ở đây -->
     </div>
-  </div>
+  </div> -->
+
+  <div class="main">
+    <main class="content px-3 py-2">
+        <div class="container-fluid">
+            <div class="mb-5">
+                <h1>Admin Dashboard</h1>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="card flex-fill border-0 illustration">
+                        <div class="card-body p-0 d-flex flex-fill">
+                            <div class="row g-0 w-100">
+                                <div class="col-6">
+                                    <div class="p-3 m-1">
+                                        <h3>Welcome Back, Admin</h3>
+                                        <p class="mb-0"></p>Admin Name</p>
+                                        <a href="/pages/statistics.html">
+                                          <button type="button" class="btn btn-primary btn-lg mb-5">Statistics</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- Table Element -->
+            <div class="card border-0">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Tests Table
+                    </h5>
+                    <h6 class="card-subtitle text-muted">
+                      Below is a comprehensive table presenting the results of our recent tests, providing valuable insights into the performance and functionality of the system under various conditions
+                    </h6>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Average Scores</th>
+                                <th scope="col">Completion Rate</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Math</td>
+                                <td>33/35</td>
+                                <td>8.12</td>
+                                <td>80%</td>
+                                <td class="col-action">
+                                  <button type="button" class="btn btn-primary">Edit</button>
+                                  <button type="button" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Physical</td>
+                                <td>35/35</td>
+                                <td>9.14</td>
+                                <td>94%</td>
+                                <td class="col-action">
+                                  <button type="button" class="btn btn-primary">Edit</button>
+                                  <button type="button" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Chemical</td>
+                                <td>30/35</td>
+                                <td>8.12</td>
+                                <td>86%</td>
+                                <td class="col-action">
+                                  <button type="button" class="btn btn-primary">Edit</button>
+                                  <button type="button" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-success">Add Test</button>
+
+                </div>
+                <div class="card border-0">
+                  <div class="card-header">
+                      <h5 class="card-title">
+                          Users Table
+                      </h5>
+                      <h6 class="card-subtitle text-muted">
+                        Below is a comprehensive table detailing registered users, encompassing essential information such as Student ID, name, class.
+                      </h6>
+                  </div>
+                  <div class="card-body table-responsive">
+                      <table class="table table-striped">
+                          <thead>
+                              <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Student ID</th>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Class</th>
+                                  <th scope="col">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <th scope="row">1</th>
+                                  <td>B21DCVT027</td>
+                                  <td>Tung Lam</td>
+                                  <td>E21CQCN02-B</td>
+                                  <td class="col-action">
+                                    <button type="button" class="btn btn-primary">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">2</th>
+                                  <td>B21DCCN025</td>
+                                  <td>Anh Tuan</td>
+                                  <td>E21CQCN02-B</td>
+                                  <td class="col-action">
+                                    <button type="button" class="btn btn-primary">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <th scope="row">3</th>
+                                  <td>B21DTDT011</td>
+                                  <td>Dinh Minh</td>
+                                  <td>E21CQCN02-B</td>
+                                  <td class="col-action">
+                                    <button type="button" class="btn btn-primary">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <button type="button" class="btn btn-success">Add User</button>
+                  </div>
+            </div>
+        </div>
+    </main>
 
   <script src="../js/adminIndex.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

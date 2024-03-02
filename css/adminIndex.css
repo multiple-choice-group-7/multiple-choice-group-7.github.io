@@ -101,3 +101,9 @@ button:hover {
     display: flex;
     gap: 10px;
 }
+
+
+.col-action {
+    display: flex;
+    gap: 20px
+}
