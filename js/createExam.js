@@ -1,19 +1,24 @@
+exams = []
 // Xử lý khi form được submit
 document.getElementById('examForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const examData = {};
-    const formData = new FormData(this);
-    formData.forEach((value, key) => {
-        examData[key] = value;
-    });
-    // Gửi dữ liệu đến backend hoặc xử lý dữ liệu ở đây
-    console.log(examData);
+
+    // Lấy dữ liệu từ form
+    var nameInput = document.getElementById('name').value;
+    var descriptionInput = document.getElementById('description').value;
+    var typeInput = document.getElementById('select').value || 'free';
+    var fileInput = document.getElementById('file').value;
+    const newExam = {
+        id: exams.length + 1,
+        name: nameInput,
+        description: descriptionInput,
+        type: typeInput,
+        file: fileInput
+    }
+    
+    exams.push(newExam);
+    console.log(exams);
+
+    // localStorage.setItem('exams', JSON.stringify(exams));
 });
-
-// export const ans = examData;
-
-// Hủy và quay lại trang trước
-function cancel() {
-    window.history.back();
-}
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exam Creation/Edit Page</title>
+    <title>Exam Creation</title>
     <link rel="stylesheet" href="../css/createExam.css" />
     <!-- Bootstrap CSS -->
     <link
@@ -82,25 +82,24 @@
       </div>
       <div class="row justify-content-center my-5">
         <div class="col-lg-6">
-          
-          <form>
+          <form id="examForm">
             <label for="email" class="form-label">Exam name:</label>
             <div class="input-group mb-4">
               <span class="input-group-text">
                 <i class="bi bi-envelope-fill text-secondary"></i>
               </span>
-              <input type="text" id="email" class="form-control" placeholder="e.g. Math" />
+              <input type="text" id="name" class="form-control" placeholder="e.g. Math" />
             </div>
             <label for="email" class="form-label">Exam description:</label>
             <div class="mb-4 form-floating">
-              <textarea class="form-control" id="query" style="height: 140px" placeholder="query"></textarea>
+              <textarea class="form-control" id="description" style="height: 140px" placeholder="query"></textarea>
             </div>
             <label for="subject" class="form-label">What type of exam?</label>
             <div class="mb-4 input-group">
               <span class="input-group-text">
                 <i class="bi bi-chat-right-dots-fill text-secondary"></i>
               </span>
-              <select class="form-select" id="subject">
+              <select class="form-select" id="select">
                 <option value="pricing" selected>Free</option>
                 <option value="content">Limited Time</option>
                 <option value="other">Other</option>
@@ -108,7 +107,7 @@
             </div>
             <label for="subject" class="form-label">Exam questions:</label>
             <div class="input-group mb-3">
-              <input type="file" class="form-control" id="inputGroupFile02">
+              <input type="file" class="form-control" id="file">
               <label class="input-group-text" for="inputGroupFile02">Upload</label>
             </div>
             <div class="mb-4 text-start">
@@ -121,5 +120,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/createExam.js"></script>
   </body>
 </html>
