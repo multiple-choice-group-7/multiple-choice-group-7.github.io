@@ -9,7 +9,7 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);          
 }
@@ -100,4 +100,18 @@ button:hover {
 .navbar-button {
     display: flex;
     gap: 10px;
+}
+
+.navbar-ul {
+    gap: 1 px;
+}
+
+.nav-item-font {
+    font-size: 20px;
+
+}
+
+.col-action {
+    display: flex;
+    gap: 20px
 }
