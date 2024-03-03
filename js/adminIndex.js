@@ -33,7 +33,7 @@ function displayExamList() {
           <td>${test.average}</td>
           <td>${test.completeRate}</td>
           <td class="col-action">
-            <a href="/pages/createExam.html">
+            <a href="/pages/editExam.html">
               <button type="button" class="btn btn-primary">Edit</button>
             </a>
               <button type="button" class="btn btn-danger" onclick='onDelete(tests, ${test.id})'>Delete</button>
@@ -55,7 +55,7 @@ function displayUserList() {
         <td>${user.name}</td>
         <td>${user.class}</td>
         <td class="col-action">
-          <a href="/pages/createExam.html">
+          <a href="/pages/editExam.html">
             <button type="button" class="btn btn-primary">Edit</button>
           </a>
           <button type="button" class="btn btn-danger" onclick='onDelete(users, ${user.id})'>Delete</button>
@@ -69,11 +69,7 @@ function onDelete(array, idToDelete) {
   const indexToDelete = array.findIndex(obj => obj.id === idToDelete);
   if (indexToDelete !== -1) {
       const newArray = array.splice(indexToDelete, 1);
-      if (array === users) {
-        users = newArray;
-      } else {
-        tests = newArray;
-      }
+      console.log(newArray);
       displayUserList();
       displayExamList();
   }

@@ -16,7 +16,7 @@
   <div class="navbar-container">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand fs-4 fw-semibold" href="/index.html">
+        <a class="navbar-brand fs-4" href="/index.html">
           <img src="/images/Logo_PTIT_University.png" width="50" height="50"/>  
           Quiz
         </a>
@@ -24,22 +24,20 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-5">
+          <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
             <li class="nav-item">
-              <a class="nav-link active fs-5 fw-semibold" aria-current="page" href="/index.html">Home</a>
+              <a class="nav-link active nav-item-font fw-semibold" aria-current="page" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5" href="#">Users</a>
+              <a class="nav-link nav-item-font" href="#">Users</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Tests
+              <a class="nav-link dropdown-toggle nav-item-font" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Exams
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Edit Test</a></li>
-                <li><a class="dropdown-item" href="#">Add Test</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Delete Test</a></li>
+                <li><a class="dropdown-item" href="/pages/editExam.html">Edit exams</a></li>
+                <li><a class="dropdown-item" href="/pages/createExam.html">Add exams</a></li>
               </ul>
             </li>
            
@@ -56,37 +54,6 @@
       </div>
     </nav>
   </div>
-
-  <!-- <div class="container">
-    <h1>Dashboard Admin</h1>
-    <h2>Quản lý kỳ thi</h2>
-    <button onclick="openAddExamModal()">Thêm mới kỳ thi</button>
-    <div id="examList">
-    </div>
-
-    <h2>Quản lý người dùng</h2>
-    <button onclick="openAddUserModal()">Thêm mới người dùng</button>
-    <div id="userList">
-    </div>
-
-    <h2>Thống kê</h2>
-    <div id="statistics">
-    </div>
-  </div>
-
-  <div id="addExamModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeAddExamModal()">&times;</span>
-      <h3>Thêm mới kỳ thi</h3>
-    </div>
-  </div>
-
-  <div id="addUserModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeAddUserModal()">&times;</span>
-      <h3>Thêm mới người dùng</h3>
-    </div>
-  </div> -->
 
   <div class="main">
     <main class="content px-3 py-2">
@@ -117,7 +84,7 @@
             <div class="card border-0">
                 <div class="card-header">
                     <h5 class="card-title">
-                        Tests Table
+                        Exams Table
                     </h5>
                     <h6 class="card-subtitle text-muted">
                       Below is a comprehensive table presenting the results of our recent tests, providing valuable insights into the performance and functionality of the system under various conditions
@@ -139,7 +106,7 @@
                         </tbody>
                     </table>
                     <a href="/pages/createExam.html">
-                      <button type="button" class="btn btn-success">Add Test</button>
+                      <button type="button" class="btn btn-success">Add Exam</button>
                     </a>
 
                 </div>
