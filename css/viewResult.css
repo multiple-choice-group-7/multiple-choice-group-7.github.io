@@ -7,8 +7,8 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 50px auto;
+    padding: 50px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -19,9 +19,17 @@ h1 {
 }
 
 #searchForm {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
 label {
     font-weight: bold;
 }
@@ -55,3 +63,36 @@ ul {
 li {
     margin-bottom: 10px;
 }
+
+/* CSS */
+.student-result {
+    border: 2px solid #3498db; /* Màu đường viền */
+    border-radius: 10px; /* Bo tròn các góc */
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* Màu nền */
+    color: #333; /* Màu chữ */
+    transition: all 0.3s ease; /* Thêm hiệu ứng transition */
+  }
+  
+  .student-result:hover {
+    transform: scale(1.02); /* Hiệu ứng phóng to */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  }
+  
+  .student-result h2 {
+    color: #3498db; /* Màu chữ cho tiêu đề */
+  }
+  
+  .student-result .exam {
+    margin-top: 15px;
+  }
+  
+  .student-result .exam h3 {
+    color: #555; /* Màu chữ cho tiêu đề kỳ thi */
+  }
+  
+  .student-result .exam p {
+    margin: 5px 0;
+  }
+  
