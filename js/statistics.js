@@ -3,12 +3,38 @@ const examResults = [
     { exam: "Luyện tập", user: "Nguyễn Văn A", score: 8.5, completed: true },
     { exam: "Luyện tập", user: "Trần Thị B", score: 7.0, completed: true },
     { exam: "Luyện tập", user: "Phạm Văn C", score: 6.5, completed: true },
-    { exam: "Giữa kỳ", user: "Nguyễn Văn A", score: 9.0, completed: true },
-    { exam: "Giữa kỳ", user: "Trần Thị B", score: 8.0, completed: true },
-    { exam: "Cuối kỳ", user: "Nguyễn Văn A", score: 8.0, completed: true }
+    { exam: "Giữa kỳ", user: "Nguyễn Văn A", score: 2.0, completed: true },
+    { exam: "Giữa kỳ", user: "Trần Thị B", score: 10, completed: true },
+    { exam: "Giữa kỳ", user: "Phạm Văn C", score: 8.0, completed: true },
+    { exam: "Giữa kỳ", user: "Cao Văn E", score: 5.5, completed: true },
+    { exam: "Giữa kỳ", user: "Phạm Hoàng D", score: 8.0, completed: true },
+    { exam: "Cuối kỳ", user: "Nguyễn Văn A", score: 8.0, completed: true },
+    { exam: "Cuối kỳ", user: "Trần Thị B", score: 8.5, completed: true },
+    { exam: "Cuối kỳ", user: "Phạm Văn C", score: 6.0, completed: true },
+    { exam: "Cuối kỳ", user: "Cao Văn E", score: 4.0, completed: true },
+    { exam: "Cuối kỳ", user: "Phạm Hoàng D", score: 9.0, completed: true },
     // Thêm dữ liệu thống kê khác nếu cần
   ];
   
+  // function readJSONFile() {
+  //   fetch('data.json') // Path to your JSON file
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       return response.json();
+  //     })
+  //     .then(jsonData => {
+  //       // Display the JSON data
+  //       document.getElementById('jsonData').textContent = JSON.stringify(jsonData, null, 2);
+  //     })
+  //     .catch(error => {
+  //       console.error('There was a problem with the fetch operation:', error);
+  //     });
+  // }
+
+  // const examResults = readJSONFile();
+
   // Hàm để tạo danh sách kỳ thi và hiển thị bảng thống kê khi trang được tải
   function initialize() {
     const examSelect = document.getElementById('examSelect');
@@ -58,16 +84,27 @@ const examResults = [
   
   // Gọi hàm initialize khi trang được tải
   initialize();
-  // import { ans } from "./result.js";
-  // console.log(ans);
   
   // ---------- CHARTS ----------
   
   // BAR CHART
+  function getTopCuoiKyUsers() {
+    // Filter the exam results to include only "Cuối kỳ" exams
+    const cuoiKyResults = examResults.filter(result => result.exam === "Cuối kỳ");
+  
+    // Sort the filtered results based on the scores in descending order
+    cuoiKyResults.sort((a, b) => b.score - a.score);
+  
+    // Extract the top 5 users
+    const top5Users = cuoiKyResults.slice(0, 5);
+  
+    return top5Users;
+  }
+
   const barChartOptions = {
     series: [
       {
-        data: [10, 8, 6, 4, 2],
+        data: getTopCuoiKyUsers().map(user => user.score),
         name: 'Products',
       },
     ],
@@ -125,7 +162,7 @@ const examResults = [
       theme: 'dark',
     },
     xaxis: {
-      categories: ['Laptop', 'Phone', 'Monitor', 'Headphones', 'Camera'],
+      categories: getTopCuoiKyUsers().map(user => user.user),
       title: {
         style: {
           color: '#f5f7ff',
@@ -147,7 +184,7 @@ const examResults = [
     },
     yaxis: {
       title: {
-        text: 'Count',
+        text: 'Điểm',
         style: {
           color: '#f5f7ff',
         },
@@ -175,15 +212,23 @@ const examResults = [
   barChart.render();
   
   // AREA CHART
+  function getTopGiuaKyUser() {
+    const TopUser = examResults.filter(result => result.exam === "Giữa kỳ");
+    TopUser.sort((a, b) => b.score - a.score);
+    const top5Users = TopUser.slice(0, 5);
+
+    return top5Users;
+  }
+
   const areaChartOptions = {
     series: [
       {
-        name: 'Purchase Orders',
-        data: [31, 40, 28, 51, 42, 109, 100],
+        name: 'Giữa kỳ',
+        data: getTopGiuaKyUser().map(user => user.score),
       },
       {
-        name: 'Sales Orders',
-        data: [11, 32, 45, 32, 34, 52, 41],
+        name: 'Cuối kỳ',
+        data: getTopCuoiKyUsers().map(user => user.score),
       },
     ],
     chart: {
@@ -196,7 +241,7 @@ const examResults = [
       },
     },
     colors: ['#00ab57', '#d50000'],
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    labels: getTopCuoiKyUsers().map(user => user.user),
     dataLabels: {
       enabled: false,
     },
@@ -257,7 +302,7 @@ const examResults = [
     yaxis: [
       {
         title: {
-          text: 'Purchase Orders',
+          text: 'Giữa kỳ',
           style: {
             color: '#f5f7ff',
           },
@@ -271,7 +316,7 @@ const examResults = [
       {
         opposite: true,
         title: {
-          text: 'Sales Orders',
+          text: 'Cuối kỳ',
           style: {
             color: '#f5f7ff',
           },
