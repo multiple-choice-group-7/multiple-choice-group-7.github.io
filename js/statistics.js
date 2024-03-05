@@ -312,6 +312,8 @@ const examResults = [
             colors: ['#f5f7ff'],
           },
         },
+        min:0,
+        max:10,
       },
       {
         opposite: true,
@@ -326,6 +328,8 @@ const examResults = [
             colors: ['#f5f7ff'],
           },
         },
+        min:0,
+        max:10,
       },
     ],
     tooltip: {
