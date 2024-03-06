@@ -52,7 +52,6 @@ const questions = [
             { text: "D. Chess", correct: false },
         ],
     },
-    // Generate 15 different questions for the exam 
     {
         question: "What is the capital of France?",
         mark: 1,
@@ -214,7 +213,7 @@ export function selectOption(option, idQuestion) {
   // Xử lý lựa chọn ở đây (nếu cần)
   updateColor(option, idQuestion);
   const question = questions[idQuestion - 1];
-  userChoices[idQuestion-1] = question.mark;
+  userChoices[idQuestion-1] = option;
 }
 
 // Xóa lựa chọn

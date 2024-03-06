@@ -4,74 +4,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang Kết Quả</title>
-  <link rel="stylesheet" href="../css/ketqua.css">
+  <title>Results of Exam</title>
+  <meta name="description" content="Hiển thị kết quả bài thi của sinh viên">
+  <link rel="icon" href="../images/favicon.png">
+  <link rel="stylesheet" href="../css/result.css">
+  <link rel="stylesheet" href="../css/test.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/toast.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <script type="module" defer>
+    // auto toast when loading page
+    import ToastManager from "../js/toast.js";
+    const toastManager = new ToastManager();
+    toastManager.displayToast();
+    window.removeToast = toastManager.removeToast;
+  </script>
 </head>
 
 <body>
-  <div class="container">
+  <ul class="notifications"></ul>
+  <header class="navbar-container fixed-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4 fw-semibold text-white d-flex flex-row justify-content-center align-items-center gap-2"
+          href="/index.html">
+          <div class="navbar-brand-img">
+            <img src="../images/logo_ptit.png" />
+          </div>
+          <p>Quiz</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars" style="color: aliceblue;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Users</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Tests
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Edit Test</a></li>
+                <li><a class="dropdown-item" href="#">Add Test</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Delete Test</a></li>
+              </ul>
+            </li>
 
-    <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+          </ul>
+          <div class="navbar-button">
+            <a href="/pages/adminLogin.html">
+              <button type="button" class="btn btn-danger">Login</button>
+            </a>
+            <a href="/pages/register.html">
+              <button type="button" class="btn btn-danger">Sign In</button>
+            </a>
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+  </header>
 
-    <h1>Kết quả bài thi</h1>
-    <div id="resultSummary">
+  <section class="container">
+    <h1 class="fw-bold">Summary of your previous attempts</h1>
+    <!-- <div id="resultSummary">
       <p>Số câu trả lời đúng: <span id="correctAnswers"></span></p>
       <p>Tổng số câu: <span id="totalQuestions"></span></p>
       <p>Điểm số: <span id="score"></span></p>
-    </div>
-    <h2>Câu trả lời chi tiết</h2>
-    <div id="answerDetails"></div>
-  </div>
+    </div> -->
+    <table>
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Started on</th>
+          <th>Completed on</th>
+          <th>Time taken</th>
+          <th>Total questions</th>
+          <th>Correct answers</th>
+          <th>Mark/10.00</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody id="resultTableBody">
+        <!-- Student result rows will be dynamically inserted here -->
+      </tbody>
+    </table>
+  </section>
 
-  <script src="../js/ketqua.js"></script>
+  <section class="container result-detail">
+    <h2>Result Details</h2>
+    <div class="exam-content container">
+      <div class="row">
+        <div class="col-md-8 col-sm-12 mb-sm-3">
+          <div class="container p-0 m-0">
+            <div class="exam-card exam-question">
+              <div class="px-4">
+                <div class="exam-card-header">
+                  <h1 class="py-3">Exam</h1>
+                </div>
+                <div>
+                  <div class="mb-3">
+                    <div id="options" data-bs-spy="scroll" data-bs-target="#list-exam" data-bs-offset="0"
+                      class="scrollbar" tabindex="0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 mb-sm-3">
+          <div class="exam-card">
+            <div class="px-4">
+              <div class="exam-navigation">
+                <h3 class="mx-4 py-3">Exam navigation</h3>
+                <div id="list-exam" class="list-group row"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btnCancel">Back to the main</button>
+  </section>
+
+  <script type="module" src="../js/result.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

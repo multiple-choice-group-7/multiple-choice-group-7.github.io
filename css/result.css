@@ -7,20 +7,136 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 93px 0 0 0 ;
     padding: 20px;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+table th {
+    background-color: #ff9800;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+table tr:last-child td {
+    border-bottom: 0px;
+}
+
+table tr:hover td {
+    background-color: #ffedcc;
+}
+
+table td {
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.result-detail {
+    margin: 0;
+}
+
+.result-detail h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+
+}
+
+.exam-navigation h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    -moz-box-align: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 0px;
+}
+
 .correct {
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
+    background-color: #265c37 !important;
+    color: #fff !important;
     border: 1px solid green;
     padding: 10px;
     margin-bottom: 10px;
 }
 
 .incorrect {
-    background-color: #ffb3b3;
+    /* background-color: #ffb3b3; */
+    background-color: #e56a54 !important;
+    color: #fff !important;
     border: 1px solid #ff4d4d;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.notSelected {
+    background-color: #c4c4c4 !important;
+    color: #fff !important;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+
+.ansChosen {
+    background-color: #d8e9fb !important;
+    color: #1897f0 !important;
+    width: 100%;
+    border-radius: 5px;
+
+}
+
+.exam-question-answer{
+    padding: 10px;
+}
+
+.pCorrect {
+    color: #265c37;
+    font-weight: bold;
+}
+
+.pIncorrect {
+    color: #e56a54;
+    font-weight: bold;
+}
+
+.btnCancel {
+    background-color: #ef1414;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnCancel:hover {
+    background-color: #000000;
 }
