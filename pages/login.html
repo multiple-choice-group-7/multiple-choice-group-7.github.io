@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <meta name="description" content="Đăng nhập người dùng">
+  <meta name="description" content="User login">
   <link rel="stylesheet" href="../css/login.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -13,16 +13,20 @@
 </head>
 
 <body>
+  <div class="image-left">
+    <img src ="../images/bg_left.png" alt>
+  </div>
   <div class="container">
     <form id="loginForm" class="form">
       <img src="../images/Logo_PTIT_University.png" height="150">
       <h2>User Login</h2>
-      <input type="text" id="username" placeholder="Username" required autocomplete="off">
-      <input type="password" id="password" placeholder="Password" required autocomplete="off">
+      <h6>Username</h6>
+      <input type="text" id="username" autocomplete="off">
+      <h6>Password</h6>
+      <input type="password" id="password" autocomplete="off">
       <button type="submit">Login</button>
       <p>Don't have an account? <a href="../pages/register.html">Register</a></p>
     </form>
-
   </div>
 
   <script src="../js/login.js"></script>

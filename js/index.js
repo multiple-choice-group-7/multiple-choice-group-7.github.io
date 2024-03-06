@@ -1,7 +1,7 @@
 const exams = [
-    { name: "Luyện tập", status: "free" },
-    { name: "Giữa kỳ", status: "timed" },
-    { name: "Cuối kỳ", status: "timed" },
+    { name: "Practice", type: "free" },
+    { name: "Mid-term", type: "timed" },
+    { name: "Final", type: "timed" },
     // Thêm các kỳ thi khác vào đây
 ];
 
@@ -17,8 +17,8 @@ function displayExams(examsToShow) {
         examItem.classList.add('exam-item');
         examItem.innerHTML = `
           <h3>${exam.name}</h3>
-          <p>Status: ${exam.status}</p>
-          <button onclick="startExam('${exam.name}')">Bắt đầu làm</button>
+          <p>Type: ${exam.type}</p>
+          <button onclick="startExam('${exam.name}')">Start</button>
         `;
         examList.appendChild(examItem);
     });
@@ -46,6 +46,7 @@ function filterExams(status) {
 function startExam(examName) {
     // Redirect hoặc thực hiện hành động khởi đầu bài thi
     alert(`Bắt đầu làm bài thi: ${examName}`);
+    window.location.href="../pages/test.html";
 }
 
 // Sự kiện tìm kiếm
