@@ -1,8 +1,4 @@
 [
-    { "exam": "Luyện tập", "user": "Nguyễn Văn A", "score": 8.5, "completed": true },
-    { "exam": "Luyện tập", "user": "Trần Thị B", "score": 7.0, "completed": true },
-    { "exam": "Luyện tập", "user": "Phạm Văn C", "score": 6.5, "completed": true },
-    { "exam": "Giữa kỳ", "user": "Nguyễn Văn A", "score": 9.0, "completed": true },
-    { "exam": "Giữa kỳ", "user": "Trần Thị B", "score": 8.0, "completed": true },
-    { "exam": "Cuối kỳ", "user": "Nguyễn Văn A", "score": 8.0, "completed": true }
+  { "exam": "Luyện tập", "user": "Nguyễn Văn A", "score": 8.5, "completed": true },
+  { "exam": "Luyện tập", "user": "Trần Thị B", "score": 7.0, "completed": true }
 ]

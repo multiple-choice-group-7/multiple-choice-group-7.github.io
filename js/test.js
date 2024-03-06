@@ -1,5 +1,6 @@
 import ToastManager from './toast.js';
 import { formatTime, formatDateTimeCurrent } from './utils.js';
+
 const questions = [
     {
         question: "What is the capital of India?",

@@ -158,6 +158,12 @@
   th {
     background-color: #f2f2f2;
   }
+
+  .no-underline {
+    text-decoration: none;
+    color: #000;
+  }
+
   /* ---------- MEDIA QUERIES ---------- */
   
   /* Medium <= 992px */

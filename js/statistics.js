@@ -1,5 +1,5 @@
 // Dữ liệu mẫu về kết quả thi
-const examResults = [
+let examResults = [
     { exam: "Luyện tập", user: "Nguyễn Văn A", score: 8.5, completed: true },
     { exam: "Luyện tập", user: "Trần Thị B", score: 7.0, completed: true },
     { exam: "Luyện tập", user: "Phạm Văn C", score: 6.5, completed: true },
@@ -16,26 +16,17 @@ const examResults = [
     // Thêm dữ liệu thống kê khác nếu cần
   ];
   
-  // function readJSONFile() {
-  //   fetch('data.json') // Path to your JSON file
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(jsonData => {
-  //       // Display the JSON data
-  //       document.getElementById('jsonData').textContent = JSON.stringify(jsonData, null, 2);
-  //     })
-  //     .catch(error => {
-  //       console.error('There was a problem with the fetch operation:', error);
-  //     });
-  // }
+  // fetch('../js/data.json')
+  // .then(response => response.json())
+  // .then(jsonData => {
+  //     const examResults = jsonData;
+  //     console.log(jsonData)
+  // })
+  // .catch(error => console.log(error));
 
-  // const examResults = readJSONFile();
-
+  localStorage.setItem('examResults', JSON.stringify(examResults));
   // Hàm để tạo danh sách kỳ thi và hiển thị bảng thống kê khi trang được tải
+  examResults = JSON.parse(localStorage.getItem('examResults'));
   function initialize() {
     const examSelect = document.getElementById('examSelect');
     const examOptions = new Set(examResults.map(result => result.exam));
@@ -65,12 +56,12 @@ const examResults = [
   
     const table = document.createElement('table');
     const headerRow = table.insertRow();
-    headerRow.innerHTML = '<th>STT</th><th>Tên kỳ thi</th><th>Tên người dùng</th><th>Điểm số</th><th>Hoàn thành</th>';
+    headerRow.innerHTML = '<th>STT</th><th>Exam type</th><th>Student</th><th>Score</th><th>Status</th>';
     let count = 1;
   
     filteredResults.forEach(result => {
         const row = table.insertRow();
-        row.innerHTML = `<td>${count}</td><td>${result.exam}</td><td>${result.user}</td><td>${result.score}</td><td>${result.completed ? 'Đã hoàn thành' : 'Chưa hoàn thành'}</td>`;
+        row.innerHTML = `<td>${count}</td><td>${result.exam}</td><td>${result.user}</td><td>${result.score}</td><td>${result.completed ? 'Completed' : 'Not completed'}</td>`;
         count++;
     });
   
