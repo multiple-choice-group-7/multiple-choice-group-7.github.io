@@ -117,15 +117,12 @@ let startedTime;
 
 // Đổi màu câu hỏi trong thẻ có id list-exam khi được bấm vào
 export function updateColor(id) {
-    for (let i = 1; i <= questions.length; i++) {
-        const question = document.getElementById(`question-${i}`);
-        if (i !== id) {
+    const questionNum = document.querySelectorAll('.list-group-item');
+    questionNum.forEach((question) => {
         question.classList.remove('active');
-        } else {
-            console.log(question);
-            question.classList.add('active');
-        }
-    }
+    });
+    const question = document.getElementById(`question-${id}`);
+    question.classList.add('active');
 }
 
 function updateInputColor(opt, id) {
@@ -229,6 +226,7 @@ export function clearOption(idQuestion) {
     });
     updateColor(idQuestion);
     updateInputColor(-1, idQuestion);
+    userChoices[idQuestion-1] = -1;
 }
 
 // Đánh dấu câu hỏi đồng thời thay đổi nội dung đánh dấu và cờ đánh dấu và thay đổi hàm xử lý khi click
