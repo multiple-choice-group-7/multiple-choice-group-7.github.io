@@ -152,8 +152,9 @@ function displayAllQuestions() {
     questions.forEach((question, index) => {
         const id = index + 1;
 
+        //   onclick="updateColor(${id},null)"
         // Hiển thị câu hỏi trong bảng thông tin bài thi
-        const questionNum = `<a class="list-group-item list-group-item-action col-sm-4" id="question-${id}" href="#exam-question-${id}" onclick="updateColor(${id})">${id}</a>`;
+        const questionNum = `<a class="list-group-item list-group-item-action col-sm-4" id="question-${id}" href="#exam-question-${id}">${id}</a>`;
         listExam.innerHTML += questionNum;
 
         // Hiển thị câu hỏi và các đáp án chi tiết
@@ -212,7 +213,6 @@ function displayAllQuestions() {
 export function selectOption(option, idQuestion) {
   // Xử lý lựa chọn ở đây (nếu cần)
   updateColor(option, idQuestion);
-  const question = questions[idQuestion - 1];
   userChoices[idQuestion-1] = option;
 }
 
