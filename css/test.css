@@ -249,10 +249,8 @@ body {
 }
 
 #list-exam a.active {
-    /* background-color: #86c3b7;
-    color: #fff; */
-    background-color: #fff !important;
-    color: #333 !important;
+    background-color: #86c3b7;
+    color: #fff;
 }
 
 .exam-card .exam-submit-btn {

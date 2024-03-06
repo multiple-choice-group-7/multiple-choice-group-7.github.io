@@ -116,23 +116,26 @@ let timeLeft = totalTime;
 let startedTime;
 
 // Đổi màu câu hỏi trong thẻ có id list-exam khi được bấm vào
-export function updateColor(opt, id) {
-    const question = document.getElementById(`question-${id}`);
-    // add class to the clicked question and remove any existing classes from the another question
-    question.classList.add('active');
+export function updateColor(id) {
     for (let i = 1; i <= questions.length; i++) {
+        const question = document.getElementById(`question-${i}`);
         if (i !== id) {
-            const anotherQuestion = document.getElementById(`question-${i}`);
-            anotherQuestion.classList.remove('active');
+        question.classList.remove('active');
+        } else {
+            console.log(question);
+            question.classList.add('active');
         }
     }
+}
 
+function updateInputColor(opt, id) {
     // add class is-chosen to the answer that is selected
     const questionNum = document.querySelectorAll(`#exam-question-${id}-choice`);
     questionNum.forEach((question, index) => {
         const spanOption = question.querySelector('.el-radio__input span');
         const inputOption = question.querySelector('.el-radio__input input');
         const pOption = question.querySelector('p');
+
         if(opt === index) {
             pOption.classList.add('is-chosen');
             pOption.classList.add('fw-bold');
@@ -152,9 +155,8 @@ function displayAllQuestions() {
     questions.forEach((question, index) => {
         const id = index + 1;
 
-        //   onclick="updateColor(${id},null)"
         // Hiển thị câu hỏi trong bảng thông tin bài thi
-        const questionNum = `<a class="list-group-item list-group-item-action col-sm-4" id="question-${id}" href="#exam-question-${id}">${id}</a>`;
+        const questionNum = `<a class="list-group-item list-group-item-action col-sm-4" id="question-${id}" href="#exam-question-${id}" onclick="updateColor(${id})">${id}</a>`;
         listExam.innerHTML += questionNum;
 
         // Hiển thị câu hỏi và các đáp án chi tiết
@@ -199,6 +201,10 @@ function displayAllQuestions() {
                                         <p>${option.text}</p>
                                   </div>`;
         });
+        // Thêm Xóa lựa chọn
+        answers.innerHTML += `<div class="exam-clear-choice" onclick="clearOption(${id})">
+                                <p>Clear my choice</p>
+                                </div>`;
         questionContent.appendChild(answers);
         questionElement.appendChild(questionContent);
         optionsElement.appendChild(questionElement);
@@ -208,7 +214,8 @@ function displayAllQuestions() {
 // Chọn lựa chọn
 export function selectOption(option, idQuestion) {
   // Xử lý lựa chọn ở đây (nếu cần)
-  updateColor(option, idQuestion);
+  updateColor(idQuestion);
+  updateInputColor(option, idQuestion);
   userChoices[idQuestion-1] = option;
 }
 
@@ -221,6 +228,7 @@ export function clearOption(idQuestion) {
         option.checked = false;
     });
     updateColor(idQuestion);
+    updateInputColor(-1, idQuestion);
 }
 
 // Đánh dấu câu hỏi đồng thời thay đổi nội dung đánh dấu và cờ đánh dấu và thay đổi hàm xử lý khi click
