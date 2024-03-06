@@ -130,15 +130,20 @@
                 <h3 class="mx-4 py-3">Exam navigation</h3>
                 <div id="list-exam" class="list-group row"></div>
               </div>
+              <div class="exam-submit-btn">
+                <button class="btnCancel" onclick="backToMain()">Back to the main</button>
+            </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <button class="btnCancel">Back to the main</button>
   </section>
 
-  <script type="module" src="../js/result.js"></script>
+  <script type="module">
+    import * as Result from "../js/result.js";
+    window.backToMain = Result.backToMain;
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

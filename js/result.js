@@ -60,8 +60,6 @@ function calculateTotalCorrectAnswer(userChoices, questions) {
 
 // Hiển thị chi tiết câu trả lời
 function displayAnswerDetails(questions, userChoices, checkCorrectAnswer) {
-    console.log(checkCorrectAnswer);
-    console.log(userChoices);
     questions.forEach((question, index) => {
         const id = index + 1;
         let checkClass = 'notSelected';
@@ -85,11 +83,27 @@ function displayAnswerDetails(questions, userChoices, checkCorrectAnswer) {
         const mark = question.mark.toFixed(2);
 
         // Hiển thị Số thứ tự câu hỏi và cờ đánh dấu câu hỏi
+
         let pSelected = 'Not yet answered';
+        let pSelectedClass = '';
+        let rightAns = '';
+        let iconCheck = '';
         if(checkCorrectAnswer[index] === true) {
             pSelected = 'Correct answer';
+            pSelectedClass = 'pCorrect';
+            iconCheck = '<i class="fa-solid fa-check mx-3" style="color: green;"></i>';
         } else if(checkCorrectAnswer[index] === false) {
             pSelected = 'Wrong answer';
+            pSelectedClass = 'pIncorrect';
+            iconCheck = '<i class="fa-solid fa-xmark mx-3" style="color: #e56a54;"></i>';
+            question.answers.forEach((q, index) => {
+                if (q.correct) {
+                    rightAns = `<div class="d-flex flex-row justify-content-start align-items-center text-center">
+                                                    <p class="p-2 m-0">Correct answer: </p>
+                                                    <h3 class="p-2 m-0 pCorrect">${q.text}</h3>
+                                                  </div>`;
+                }
+            });
         }
         const questionNumElement = document.createElement('div');
         questionNumElement.className = 'col-sm-2 exam-question-num';
@@ -97,7 +111,7 @@ function displayAnswerDetails(questions, userChoices, checkCorrectAnswer) {
                                             <p class="mb-2 fw-bold">Question</p>
                                             <h3 class="mb-2 mx-1"> ${id}</h3>
                                         </div>
-                                        <p>${pSelected}</p>
+                                        <p class="${pSelectedClass}">${pSelected}</p>
                                         <p>Marked out of ${mark}</p>`;
         questionElement.appendChild(questionNumElement);
 
@@ -112,22 +126,26 @@ function displayAnswerDetails(questions, userChoices, checkCorrectAnswer) {
         answers.className = 'exam-question-answers';
         question.answers.forEach((option, index) => {
             let ansChoiceClass = '';
+            let icon = '';
             if (userChoices[id - 1] === index) {
                 ansChoiceClass = 'ansChosen';
+                icon = iconCheck
             }
             answers.innerHTML += `<div class="exam-question-answer ${ansChoiceClass} d-flex flex-row justify-content-start align-items-center" id="exam-question-${id}-choice">
                                         <p>${option.text}</p>
+                                        ${icon}
                                   </div>`;
         });
-        answers.innerHTML += `<div class="">
-                                <i class="fa-solid fa-check"></i>
-                                <i class="fa-solid fa-xmark"></i>
-                                <p>Clear my choice</p>
-                                </div>`;
+        answers.innerHTML += rightAns;
         questionContent.appendChild(answers);
         questionElement.appendChild(questionContent);
         optionsElement.appendChild(questionElement);
     });
+}
+
+// Back to main 
+export function backToMain(){
+    window.location.href = '../index.html';
 }
 
 // Hiển thị kết quả khi trang được tải
