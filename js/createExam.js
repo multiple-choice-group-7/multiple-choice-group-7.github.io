@@ -1,4 +1,3 @@
-exams = []
 // Xử lý khi form được submit
 document.getElementById('examForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -6,8 +5,10 @@ document.getElementById('examForm').addEventListener('submit', function(event) {
     // Lấy dữ liệu từ form
     var nameInput = document.getElementById('name').value;
     var descriptionInput = document.getElementById('description').value;
-    var typeInput = document.getElementById('select').value || 'free';
+    var typeInput = document.getElementById('select').value || 'Free';
     var fileInput = document.getElementById('file').value;
+    fileInput = fileInput.substring(0,12);
+    var exams = JSON.parse(localStorage.getItem('exams'));
     const newExam = {
         id: exams.length + 1,
         name: nameInput,
@@ -15,10 +16,8 @@ document.getElementById('examForm').addEventListener('submit', function(event) {
         type: typeInput,
         file: fileInput
     }
-    
     exams.push(newExam);
-    console.log(exams);
-
-    // localStorage.setItem('exams', JSON.stringify(exams));
+    localStorage.setItem('exams', JSON.stringify(exams));
+    window.location.href = '/pages/adminIndex.html';
 });
 

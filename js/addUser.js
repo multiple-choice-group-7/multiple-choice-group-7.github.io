@@ -10,11 +10,12 @@ document.getElementById('studentForm').addEventListener('submit', function(event
     var classIDInput = document.getElementById('classID').value;
     let students = JSON.parse(localStorage.getItem('users'));
     const user = {
-        id: students.length + 1,
+        id: students.length + 2,
         studentID: studentIDInput,
         name: nameInput, 
         class: classIDInput                     
     }
     students.push(user);
     localStorage.setItem('users', JSON.stringify(students));
+    window.location.href = '/pages/adminIndex.html';
 })
