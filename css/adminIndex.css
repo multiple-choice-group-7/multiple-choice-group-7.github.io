@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+.main {
+    margin-top: 80px
+}
+
 .container {
     max-width: 800px;
     margin: 20px auto;

@@ -1,13 +1,9 @@
 // Mô phỏng danh sách kỳ thi và người dùng
 
 let exams = [
-    { id: 0, name: "Math", amount: "30/35", average: "8.5", completeRate: "85%"},
-    { id: 1, name: "English", amount: "25/30", average: "7.5", completeRate: "80%"},
-    { id: 2, name: "History", amount: "20/25", average: "9.5", completeRate: "75%"},
-    { id: 3, name: "Geography", amount: "15/20", average: "6.5", completeRate: "70%"},
-    { id: 4, name: "Physics", amount: "10/15", average: "8.5", completeRate: "65%"},
-    { id: 5, name: "Chemistry", amount: "10/10", average: "7.5", completeRate: "60%"},
-    { id: 6, name: "Biology", amount: "25/25", average: "9.5", completeRate: "55%"}
+    { id: 0, name: "Midterm", description: "Mid-term test", type: "Limited", status: "Active", file: "midterm.xlsx"},
+    { id: 1, name: "Endterm", description: "End-term test", type: "Limited", status: "Active", file: "endterm.xlsx"},
+    { id: 3, name: "Practice 1", description: "Practice 1", type: "Free", status: "Active", file: "practice1.xlsx"},
 ];
 
 let users = [
@@ -20,11 +16,24 @@ let users = [
     { id: 6, studentID: "B21DCVT033", name: "Nam Anh", class: "E21CQCN02-B"}
 ];
 
-localStorage.setItem('exams', JSON.stringify(exams));
-localStorage.setItem('users', JSON.stringify(users));
 
-let examsData = JSON.parse(localStorage.getItem('exams'));
-let usersData = JSON.parse(localStorage.getItem('users'));
+let examsData 
+let usersData
+
+if (localStorage.getItem('users') === null) {
+  localStorage.setItem('users', JSON.stringify(users));
+  usersData = JSON.parse(localStorage.getItem('users'));
+} else {
+  usersData = JSON.parse(localStorage.getItem('users'));
+}
+
+if (localStorage.getItem('exams') === null) {
+  localStorage.setItem('exams', JSON.stringify(exams));
+  examsData = JSON.parse(localStorage.getItem('exams'));
+} else {
+  examsData = JSON.parse(localStorage.getItem('exams'));
+}
+
 
 // Hiển thị danh sách kỳ thi
 function displayExamList() {
@@ -35,9 +44,10 @@ function displayExamList() {
         examItem.innerHTML = `
           <td>${exam.id}</td>
           <td>${exam.name}</td>
-          <td>${exam.amount}</td>
-          <td>${exam.average}</td>
-          <td>${exam.completeRate}</td>
+          <td>${exam.description}</td>
+          <td>${exam.type}</td>
+          <td>${exam.status}</td> 
+          <td>${exam.file}</td>
           <td class="col-action">
             <a href="/pages/editExam.html">
               <button type="button" class="btn btn-primary">Edit</button>
