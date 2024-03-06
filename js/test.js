@@ -199,10 +199,6 @@ function displayAllQuestions() {
                                         <p>${option.text}</p>
                                   </div>`;
         });
-        // Thêm Xóa lựa chọn
-        answers.innerHTML += `<div class="exam-clear-choice" onclick="clearOption(${id})">
-                                <p>Clear my choice</p>
-                                </div>`;
         questionContent.appendChild(answers);
         questionElement.appendChild(questionContent);
         optionsElement.appendChild(questionElement);
