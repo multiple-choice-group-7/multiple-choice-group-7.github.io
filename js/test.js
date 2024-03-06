@@ -1,4 +1,5 @@
 import ToastManager from './toast.js';
+import { formatTime, formatDateTimeCurrent } from './utils.js';
 const questions = [
     {
         question: "What is the capital of India?",
@@ -50,15 +51,56 @@ const questions = [
             { text: "D. Chess", correct: false },
         ],
     },
+    // Generate 15 different questions for the exam 
     {
-        question: "What is the capital of India?",
+        question: "What is the capital of France?",
         mark: 1,
         answers: [
             { text: "A. Paris", correct: true },
             { text: "B. Berlin", correct: false },
             { text: "C. New Delhi", correct: false },
             { text: "D. Rome", correct: false },
-        ],
+        ]
+    },
+    {
+        question: "What is the capital of Japan?",
+        mark: 1,
+        answers: [
+            { text: "A. Paris", correct: false },
+            { text: "B. Berlin", correct: false },
+            { text: "C. Tokyo", correct: true },
+            { text: "D. Rome", correct: false },
+        ]
+    },
+    {
+        question: "Which country is known as the Land of the Rising Sun?",
+        mark: 1,
+        answers: [
+            { text: "A. China", correct: false },
+            { text: "B. Japan", correct: true },
+            { text: "C. Korea", correct: false },
+            { text: "D. Vietnam", correct: false },
+        ]
+    },
+    {
+        question: "What is the national flower of Japan?",
+        mark: 1,
+        answers: [
+            { text: "A. Cherry Blossom", correct: true },
+            { text: "B. Rose", correct: false },
+            { text: "C. Sunflower", correct: false },
+            { text: "D. Lotus", correct: false },
+        ]
+    },
+    {
+        question: "What is the national bird of Japan?",
+        mark: 1,
+        answers: [
+            { text: "A. Pigeon", correct: false },
+            { text: "B. Sparrow", correct: false },
+            { text: "C. Crane", correct: true },
+            { text: "D. Peacock", correct: false },
+        ]
     },
   ];
 
@@ -68,25 +110,13 @@ const userChoices = Array(questions.length).fill(-1);
 const listExam = document.getElementById('list-exam');
 const optionsElement = document.getElementById('options');
 const countdownElement = document.getElementById('countdown');
-const submitBtn = document.getElementById('submitBtn');
-const messageElement = document.getElementById('message');
 
 const totalTime = 60*30; // Thời gian làm bài, tính theo giây
 let timeLeft = totalTime;
-let totalMark = 0;
-
-// Tính tổng số điểm của bài thi sau khi hoàn thành
-function calculateTotalMark(option, idQuestion) {
-    const question = questions[idQuestion - 1];
-    userChoices[idQuestion - 1] = option;
-    const mark = question.mark;
-    if (question.answers[option].correct) {
-        totalMark += mark;
-    }
-}
+let startedTime;
 
 // Đổi màu câu hỏi trong thẻ có id list-exam khi được bấm vào
-export function updateColor(id) {
+export function updateColor(opt, id) {
     const question = document.getElementById(`question-${id}`);
     // add class to the clicked question and remove any existing classes from the another question
     question.classList.add('active');
@@ -96,6 +126,25 @@ export function updateColor(id) {
             anotherQuestion.classList.remove('active');
         }
     }
+
+    // add class is-chosen to the answer that is selected
+    const questionNum = document.querySelectorAll(`#exam-question-${id}-choice`);
+    questionNum.forEach((question, index) => {
+        const spanOption = question.querySelector('.el-radio__input span');
+        const inputOption = question.querySelector('.el-radio__input input');
+        const pOption = question.querySelector('p');
+        if(opt === index) {
+            pOption.classList.add('is-chosen');
+            pOption.classList.add('fw-bold');
+            spanOption.classList.add('el-radio__inner');
+            inputOption.classList.add('opacity-0');
+        } else {
+            pOption.classList.remove('is-chosen');
+            pOption.classList.remove('fw-bold');
+            spanOption.classList.remove('el-radio__inner');
+            inputOption.classList.remove('opacity-0');
+        }
+    });
 }
 
 // Hiển thị toàn bộ câu hỏi và các đáp án có thể nhấn chọn
@@ -141,8 +190,11 @@ function displayAllQuestions() {
         const answers = document.createElement('div');
         answers.className = 'exam-question-answers';
         question.answers.forEach((option, index) => {
-            answers.innerHTML += `<div class="exam-question-answer d-flex flex-row justify-content-start align-items-center">
-                                        <input type="radio" name="exam-question-${id}-choice" value="${index}" onclick="selectOption(${index}, ${id})">
+            answers.innerHTML += `<div class="exam-question-answer d-flex flex-row justify-content-start align-items-center" id="exam-question-${id}-choice">
+                                        <div class="el-radio__input d-flex flex-row align-item-center">
+                                            <span></span>
+                                            <input type="radio" name="exam-question-${id}-choice" value="${index}" onclick="selectOption(${index}, ${id})">
+                                        </div>
                                         <p>${option.text}</p>
                                   </div>`;
         });
@@ -159,8 +211,9 @@ function displayAllQuestions() {
 // Chọn lựa chọn
 export function selectOption(option, idQuestion) {
   // Xử lý lựa chọn ở đây (nếu cần)
-  updateColor(idQuestion);
-  calculateTotalMark(option, idQuestion);
+  updateColor(option, idQuestion);
+  const question = questions[idQuestion - 1];
+  userChoices[idQuestion-1] = question.mark;
 }
 
 // Xóa lựa chọn
@@ -209,7 +262,8 @@ export function unflagQuestion(id) {
 }
 
 // Bắt đầu bộ đếm thời gian
-function startTimer() {
+function startedTimer() {
+    startedTime = formatDateTimeCurrent();
     const timerInterval = setInterval(() => {
         timeLeft--;
         countdownElement.textContent = formatTime(timeLeft);
@@ -223,11 +277,14 @@ function startTimer() {
 
 // Gửi bài làm
 export const submitExam = () => {
-    const submittedTime = formatDateTimeCurrent();
+    const finishedTime = formatDateTimeCurrent();
+    const time = new Date(timeLeft * 1000);
     const result = {
-        submittedTime: submittedTime,
-        totalMark: totalMark,
-        totalTime: 60*30-timeLeft,
+        studentId: 'B21DCCN123',
+        startedTime: startedTime,
+        finishedTime: finishedTime,
+        timeLeft: totalTime-timeLeft,
+        totalTime: totalTime,
         questions: questions,
         userChoices: userChoices
     }
@@ -239,34 +296,11 @@ export const submitExam = () => {
     // }, 500);
 }
 
-// Format thời gian: h:mm:ss
-function formatTime(seconds) {
-    // multiply the seconds by 1000 to convert to milliseconds
-    const time = new Date(seconds * 1000);
-    return time.toISOString().substring(12, 19);
-    // const minutes = Math.floor(seconds / 60);
-    // const remainingSeconds = seconds % 60;
-    // return `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-}
-
-function formatDateTimeCurrent() {
-    const dateTime = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
-    // Monday, March 4, 2024 at 8:38 PM
-    const dateStr = dateTime.toLocaleDateString('vn-VN', options);
-
-    // Format time: Monday, 1 January 2022, 3:00 PM
-    const splitTime = dateStr.split(', ');
-    const dateMonths = splitTime[1].split(' ');
-    const yearTime = splitTime[2].split(' ');
-    return splitTime[0] + ', ' + dateMonths[1] + ' ' + dateMonths[0] + ' ' + yearTime[0] + ', ' + yearTime[2] + ' ' + yearTime[3];
-}
-
 // Khởi động bài thi
  export function startExam() {
     // displayQuestion();
     displayAllQuestions();
-    startTimer();
+    startedTimer();
 }
 
 // Bắt đầu bài thi khi trang được tải

@@ -11,6 +11,10 @@ body {
     background-color: rgba(0, 0, 0, 0.12);
 }
 
+.is-chosen {
+    color: #67c23a;
+}
+
 /* flag to mark the question */
 .flagged::before {
     content: "";
@@ -37,7 +41,7 @@ body {
 
 .exam-content {
     max-width: 900px;
-    margin: 42px 0 0 0;
+    margin: 93px auto 0;
     padding: 0 !important;
 }
 
@@ -152,10 +156,50 @@ body {
     text-align: center;
 }
 
-#options .exam-question-answer input {
+.el-radio__input {
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
     margin-right: 10px;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.el-radio__inner {
+    position: relative;
+    border: 1px solid #67c23a;
+    border-radius: 100%;
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: #67c23a;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.el-radio__inner::after {
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    background-color: #fff;
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    transition: transform .15s ease-in;
+}
+
+#options .exam-question-answer input {
     height: 1.1rem;
     width: 1.1rem;
+    outline: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
 }
 
 #options .exam-question-answer p {

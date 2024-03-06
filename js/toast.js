@@ -108,7 +108,7 @@ export default class ToastManager {
                             <i class="fa-solid ${icon}"></i>
                             <span>${msg}</span>
                           </div>
-                          <i class="fa-solid fa-xmark" onclick="toastManager.removeToast(this.parentElement)"></i>`;
+                          <i class="fa-solid fa-xmark" onclick="removeToast(this.parentElement)"></i>`;
         this.notifications.appendChild(toast);
         toast.timeoutId = setTimeout(() => this.removeToast(toast), this.toastDetails.timer);
     }
