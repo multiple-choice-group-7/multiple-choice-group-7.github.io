@@ -1,18 +1,18 @@
 // Dữ liệu mẫu về kết quả thi
 let examResults = [
-    { exam: "Luyện tập", user: "Nguyễn Văn A", score: 8.5, completed: true },
-    { exam: "Luyện tập", user: "Trần Thị B", score: 7.0, completed: true },
-    { exam: "Luyện tập", user: "Phạm Văn C", score: 6.5, completed: true },
-    { exam: "Giữa kỳ", user: "Nguyễn Văn A", score: 2.0, completed: true },
-    { exam: "Giữa kỳ", user: "Trần Thị B", score: 10, completed: true },
-    { exam: "Giữa kỳ", user: "Phạm Văn C", score: 8.0, completed: true },
-    { exam: "Giữa kỳ", user: "Cao Văn E", score: 5.5, completed: true },
-    { exam: "Giữa kỳ", user: "Phạm Hoàng D", score: 8.0, completed: true },
-    { exam: "Cuối kỳ", user: "Nguyễn Văn A", score: 8.0, completed: true },
-    { exam: "Cuối kỳ", user: "Trần Thị B", score: 8.5, completed: true },
-    { exam: "Cuối kỳ", user: "Phạm Văn C", score: 6.0, completed: true },
-    { exam: "Cuối kỳ", user: "Cao Văn E", score: 4.0, completed: true },
-    { exam: "Cuối kỳ", user: "Phạm Hoàng D", score: 9.0, completed: true },
+    { exam: "Practice", user: "Nguyễn Văn A", score: 8.5, completed: true },
+    { exam: "Practice", user: "Trần Thị B", score: 7.0, completed: true },
+    { exam: "Practice", user: "Phạm Văn C", score: 6.5, completed: true },
+    { exam: "Mid-term", user: "Nguyễn Văn A", score: 2.0, completed: true },
+    { exam: "Mid-term", user: "Trần Thị B", score: 10, completed: true },
+    { exam: "Mid-term", user: "Phạm Văn C", score: 8.0, completed: true },
+    { exam: "Mid-term", user: "Cao Văn E", score: 5.5, completed: true },
+    { exam: "Mid-term", user: "Phạm Hoàng D", score: 8.0, completed: true },
+    { exam: "End-term", user: "Nguyễn Văn A", score: 8.0, completed: true },
+    { exam: "End-term", user: "Trần Thị B", score: 8.5, completed: true },
+    { exam: "End-term", user: "Phạm Văn C", score: 6.0, completed: true },
+    { exam: "End-term", user: "Cao Văn E", score: 4.0, completed: true },
+    { exam: "End-term", user: "Phạm Hoàng D", score: 9.0, completed: true },
     // Thêm dữ liệu thống kê khác nếu cần
   ];
   

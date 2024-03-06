@@ -1,23 +1,23 @@
 // Dữ liệu mẫu về kết quả thi của sinh viên
 const studentResults = [
     { studentId: "SV001", studentName: "Nguyễn Văn A", exams: [
-          { exam: "Luyện tập", score: 8.5, completed: true, date: "2024-02-25", answers: [
-                { question: "Câu hỏi 1", chosenAnswer: "A", correctAnswer: "B", explanation: "Giải thích câu hỏi 1" },
-                { question: "Câu hỏi 2", chosenAnswer: "B", correctAnswer: "B", explanation: null }
+          { exam: "Practice", score: 8.5, completed: true, date: "2024-02-25", answers: [
+                { question: "Question 1", chosenAnswer: "A", correctAnswer: "B", explanation: "Explain question 1" },
+                { question: "Question 2", chosenAnswer: "B", correctAnswer: "B", explanation: null }
           ] },
-          { exam: "Giữa kỳ", score: 9.0, completed: true, date: "2024-02-27", answers: [
-                { question: "Câu hỏi 1", chosenAnswer: "B", correctAnswer: "B", explanation: null },
-                { question: "Câu hỏi 2", chosenAnswer: "C", correctAnswer: "C", explanation: null }
+          { exam: "Mid-term", score: 9.0, completed: true, date: "2024-02-27", answers: [
+                { question: "Question 1", chosenAnswer: "B", correctAnswer: "B", explanation: null },
+                { question: "Question 2", chosenAnswer: "C", correctAnswer: "C", explanation: null }
           ] }
     ] },
     { studentId: "SV002", studentName: "Trần Thị B", exams: [
-          { exam: "Luyện tập", score: 7.0, completed: true, date: "2024-02-25", answers: [
-                { question: "Câu hỏi 1", chosenAnswer: "B", correctAnswer: "B", explanation: null },
-                { question: "Câu hỏi 2", chosenAnswer: "C", correctAnswer: "C", explanation: null }
+          { exam: "Practice", score: 7.0, completed: true, date: "2024-02-25", answers: [
+                { question: "Question 1", chosenAnswer: "B", correctAnswer: "B", explanation: null },
+                { question: "Question 2", chosenAnswer: "C", correctAnswer: "C", explanation: null }
           ] },
-          { exam: "Giữa kỳ", score: 8.0, completed: true, date: "2024-02-27", answers: [
-                { question: "Câu hỏi 1", chosenAnswer: "A", correctAnswer: "B", explanation: "Giải thích câu hỏi 1" },
-                { question: "Câu hỏi 2", chosenAnswer: "C", correctAnswer: "C", explanation: null }
+          { exam: "Mid-term", score: 8.0, completed: true, date: "2024-02-27", answers: [
+                { question: "Question 1", chosenAnswer: "A", correctAnswer: "B", explanation: "Explain question 1" },
+                { question: "Question 2", chosenAnswer: "C", correctAnswer: "C", explanation: null }
           ] }
     ] }
     // Thêm dữ liệu kết quả của sinh viên khác nếu cần
@@ -51,10 +51,10 @@ function renderExams(exams) {
         html += `
           <div class="exam">
             <h3>${exam.exam}</h3>
-            <p>Điểm số: ${exam.score}</p>
-            <p>Trạng thái: ${exam.completed ? 'Hoàn thành' : 'Chưa hoàn thành'}</p>
-            <p>Ngày tham gia: ${exam.date}</p>
-            <h4>Câu trả lời chi tiết:</h4>
+            <p>Score: ${exam.score}</p>
+            <p>Status: ${exam.completed ? 'Completed' : 'Not completed'}</p>
+            <p>Date: ${exam.date}</p>
+            <h4>Explain:</h4>
             <ul>
               ${renderAnswers(exam.answers)}
             </ul>
@@ -70,10 +70,10 @@ function renderAnswers(answers) {
     answers.forEach(answer => {
         html += `
           <li>
-            <p><strong>Câu hỏi:</strong> ${answer.question}</p>
-            <p><strong>Câu trả lời của sinh viên:</strong> ${answer.chosenAnswer}</p>
-            <p><strong>Đáp án đúng:</strong> ${answer.correctAnswer}</p>
-            <p><strong>Giải thích:</strong> ${answer.explanation ? answer.explanation : 'Không có giải thích'}</p>
+            <p><strong>Question:</strong> ${answer.question}</p>
+            <p><strong>Answer Chosen:</strong> ${answer.chosenAnswer}</p>
+            <p><strong>Correct Answer:</strong> ${answer.correctAnswer}</p>
+            <p><strong>Explain:</strong> ${answer.explanation ? answer.explanation : 'Not having explain'}</p>
           </li>
         `;
     });
